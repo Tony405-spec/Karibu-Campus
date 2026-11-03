@@ -3,6 +3,7 @@
 [![Live demo](https://img.shields.io/badge/Live%20demo-karibu--campus.onrender.com-46a758?logo=streamlit&logoColor=white)](https://karibu-campus.onrender.com)
 
 **Live app: [https://karibu-campus.onrender.com](https://karibu-campus.onrender.com)**
+Data & Administration → Download official dataset → Prepare dataset and train the model.
 
 Course project for CPP 4201, KCA University. The repository combines two separate components: a reproducible model pipeline for the public UCI student-outcome dataset and a Kenyan university campus support prototype. The model dataset comes from a Portuguese institution; its estimates are not validated for Kenyan universities. The app is not clinical care, an operational early-warning system or an automated decision service.
 
