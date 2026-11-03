@@ -1,6 +1,19 @@
 # Karibu Campus: Student Support and Academic Outcome Prototype
 
+[![Live demo](https://img.shields.io/badge/Live%20demo-karibu--campus.onrender.com-46a758?logo=streamlit&logoColor=white)](https://karibu-campus.onrender.com)
+
+**Live app: [https://karibu-campus.onrender.com](https://karibu-campus.onrender.com)**
+
 Course project for CPP 4201, KCA University. The repository combines two separate components: a reproducible model pipeline for the public UCI student-outcome dataset and a Kenyan university campus support prototype. The model dataset comes from a Portuguese institution; its estimates are not validated for Kenyan universities. The app is not clinical care, an operational early-warning system or an automated decision service.
+
+## Live Demo
+
+The prototype is deployed on Render: **[karibu-campus.onrender.com](https://karibu-campus.onrender.com)**
+
+- Open **Student Support Home**, **Support Chat**, **Study Reset** and **Support Directory** straight away to explore the support hub.
+- To enable model assessment and analytics, open **Data & Administration**, choose **Download official dataset**, then **Prepare dataset and train the model**.
+- If the app has been idle, the first load may take a short while to wake up.
+- Do not enter real student records or personal, sensitive information into the hosted app.
 
 ## Features
 
@@ -14,9 +27,9 @@ The chatbot uses deterministic regular-expression intent routing and prepared re
 
 ## Preview
 
-![Karibu Campus home screen](docs/report/screenshots/00_home.png)
+[![Karibu Campus home screen](docs/report/screenshots/00_home.png)](https://karibu-campus.onrender.com)
 
-The app keeps outcome modelling separate from the support chat and resource directory.
+The app keeps outcome modelling separate from the support chat and resource directory. Click the screenshot to open the live app.
 
 ## Setup
 
@@ -34,7 +47,7 @@ Open the local URL printed by Streamlit, normally `http://localhost:8501`. To us
 python -m dropout_pipeline.cli --data data/raw/data.csv
 ```
 
-The first modelling run downloads the official UCI archive, validates the data, compares the three classifiers using stratified five-fold cross-validation and evaluates the selected model once on a held-out test partition. It saves the trained model and report artifacts in `outputs/`. Downloaded data and generated outputs are ignored by Git; run the pipeline to reproduce them. On Streamlit Cloud, open **Data & Administration** and choose **Download official dataset** before **Prepare dataset and train the model**. See [data provenance](data/raw/README.md) and [artifact notes](outputs/README.md).
+The first modelling run downloads the official UCI archive, validates the data, compares the three classifiers using stratified five-fold cross-validation and evaluates the selected model once on a held-out test partition. It saves the trained model and report artifacts in `outputs/`. Downloaded data and generated outputs are ignored by Git; run the pipeline to reproduce them. On the hosted app, open **Data & Administration** and choose **Download official dataset** before **Prepare dataset and train the model**. See [data provenance](data/raw/README.md) and [artifact notes](outputs/README.md).
 
 ## Evaluation snapshot
 
@@ -70,9 +83,9 @@ mypy src/
 ## Documentation
 
 - [Step-by-step setup and demo guide](docs/demo_guide.md)
-- [Demo guide](docs/demo_guide.md), [methodology](docs/methodology.md), and [project design](docs/project_design.md)
+- [Methodology](docs/methodology.md) and [project design](docs/project_design.md)
+- [Concept map](docs/concept_map.md) and [viva notes](docs/viva_preparation.md)
 - App screenshots are under `docs/report/screenshots/`.
-- [Concept map](docs/concept_map.md), [methodology](docs/methodology.md), [project design](docs/project_design.md) and [viva notes](docs/viva_preparation.md)
 
 ## Dataset and limitations
 
