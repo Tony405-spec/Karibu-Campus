@@ -34,6 +34,14 @@ Open the local URL printed by Streamlit, normally `http://localhost:8501`. To us
 python -m dropout_pipeline.cli --data data/raw/data.csv
 ```
 
+### Deploy on Render
+
+Create a new **Blueprint** in Render from this repository and accept the included
+`render.yaml`. Render will install the dependencies and start Streamlit on its assigned
+port. After the app opens, use **Data & Administration → Download official dataset**, then
+**Prepare dataset and train the model**. The free service filesystem is temporary, so use
+fictional/pseudonymous case data only.
+
 The first modelling run downloads the official UCI archive, validates the data, compares the three classifiers using stratified five-fold cross-validation and evaluates the selected model once on a held-out test partition. It saves the trained model and report artifacts in `outputs/`. Downloaded data and generated outputs are ignored by Git; run the pipeline to reproduce them. On Streamlit Cloud, open **Data & Administration** and choose **Download official dataset** before **Prepare dataset and train the model**. See [data provenance](data/raw/README.md) and [artifact notes](outputs/README.md).
 
 ## Evaluation snapshot
