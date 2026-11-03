@@ -28,6 +28,8 @@ from dropout_pipeline.cohort import (
     outcome_summary,
 )
 from dropout_pipeline.config import PipelineConfig
+from dropout_pipeline.extract import download_dataset
+from dropout_pipeline.exceptions import DownloadError, InvalidArchiveError
 from dropout_pipeline.inference import (
     Assessment,
     ReviewBand,
@@ -1281,8 +1283,20 @@ def _render_data_admin() -> None:
         "Model status", "Saved artifact ready" if model is not None else "Not trained"
     )
     if frame is None:
-        st.info("The source CSV is expected at `data/raw/data.csv`.")
-        if error:
+        st.info(
+            "The official UCI CSV is not bundled with this repository. Download it here before "
+            "using the analytical pages."
+        )
+        if st.button("Download official dataset", type="primary"):
+            try:
+                with st.spinner("Downloading and extracting the official UCI dataset…"):
+                    download_dataset(DATA_PATH.parent)
+                _read_validated_frame.clear()
+                st.success("Dataset downloaded. Refreshing validation status…")
+                st.rerun()
+            except (DownloadError, InvalidArchiveError, OSError) as exc:
+                st.error(f"Dataset download could not complete: {exc}")
+        if error and DATA_PATH.exists():
             st.code(error)
     else:
         summary = dataset_quality_summary(frame, DATA_PATH)

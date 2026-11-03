@@ -147,7 +147,7 @@ The tests cover validators, pipeline behavior, threshold boundaries, inference c
 | `No module named streamlit` | Activate the project environment and run `python -m pip install -e ".[dev,report,app]"`. |
 | Codespaces page does not open | Confirm the terminal still runs Streamlit, then open forwarded port `8501` from the **Ports** panel. Use the forwarded URL rather than your computer's localhost. |
 | Port 8501 is busy | Stop the other app or use `--server.port 8502`, then forward `8502`. |
-| Assessment/model pages report missing artifacts | Run `python -m dropout_pipeline.cli --download` and wait until it finishes. Refresh the page. |
+| Assessment/model pages report missing artifacts | Run `python -m dropout_pipeline.cli --download` and wait until it finishes. In Streamlit Cloud, use **Data & Administration → Download official dataset**, then **Prepare dataset and train the model**. Refresh the page after completion. |
 | Data download fails | Check network access; if the official CSV is already present, run `python -m dropout_pipeline.cli --data data/raw/data.csv`. |
 | Chat returns general support | Try the table's exact phrases. This small pattern matcher does not understand all paraphrases, spelling errors or context. |
 | Charts or report fail on import | Reinstall dependencies with the documented extras in the active environment. Report generation requires `.[report]`; chart pages require `.[app]`. |

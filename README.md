@@ -34,7 +34,7 @@ Open the local URL printed by Streamlit, normally `http://localhost:8501`. To us
 python -m dropout_pipeline.cli --data data/raw/data.csv
 ```
 
-The first modelling run downloads the official UCI archive, validates the data, compares the three classifiers using stratified five-fold cross-validation and evaluates the selected model once on a held-out test partition. It saves the trained model and report artifacts in `outputs/`. Downloaded data and generated outputs are ignored by Git; run the pipeline to reproduce them. See [data provenance](data/raw/README.md) and [artifact notes](outputs/README.md).
+The first modelling run downloads the official UCI archive, validates the data, compares the three classifiers using stratified five-fold cross-validation and evaluates the selected model once on a held-out test partition. It saves the trained model and report artifacts in `outputs/`. Downloaded data and generated outputs are ignored by Git; run the pipeline to reproduce them. On Streamlit Cloud, open **Data & Administration** and choose **Download official dataset** before **Prepare dataset and train the model**. See [data provenance](data/raw/README.md) and [artifact notes](outputs/README.md).
 
 ## Evaluation snapshot
 
